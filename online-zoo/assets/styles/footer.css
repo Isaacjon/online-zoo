@@ -123,6 +123,7 @@
 
       .footer__copyright {
         flex-direction: row;
+        justify-content: space-between;
         margin: 30px auto 0 auto;
         max-width: 445px;
         width: 100%;
@@ -145,6 +146,7 @@
 
       .footer__copyright {
         margin: 0;
+        justify-content: unset;
       }
 
       .footer__social {

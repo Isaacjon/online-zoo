@@ -121,15 +121,6 @@ body.side-menu-open .header__hamburger-icon--close {
   display: none;
 }
 
-@media (max-width: 1200px) {
-  .header__nav-list {
-    gap: 38px;
-  }
-  .header__social {
-    gap: 20px;
-  }
-}
-
 @media (max-width: 900px) {
   .header__nav-list {
     gap: 24px;
@@ -147,7 +138,7 @@ body.side-menu-open .header__hamburger-icon--close {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
   .header__nav,
   .header__social {
     display: none;

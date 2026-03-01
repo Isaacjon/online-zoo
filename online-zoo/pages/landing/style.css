@@ -75,6 +75,7 @@
   @media (min-width: 1200px) {
     & {
       padding: 100px 20px;
+      height: calc(100svh - 110px);
     }
 
     .hero__content {
