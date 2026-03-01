@@ -22,8 +22,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Point this to the folder containing your landing page
-          path: "online-zoo/pages/landing/"
+          path: "online-zoo"
 
       - name: Deploy to GitHub Pages
         id: deployment
