@@ -155,7 +155,11 @@ function initTestimonialsSlider() {
     });
     pagerDots.forEach((dot, i) => {
       dot.classList.toggle('testimonials__pager-dot--active', i === activeIndex);
-      dot.setAttribute('aria-selected', i === activeIndex);
+      if (i === activeIndex) {
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.removeAttribute('aria-current');
+      }
     });
   }
 
