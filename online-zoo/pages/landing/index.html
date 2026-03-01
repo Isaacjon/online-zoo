@@ -3,10 +3,421 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>landing</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../assets/icons/favicon.svg"
+      sizes="16x16"
+    />
+    <title>Online Zoo landing page</title>
+    <link rel="stylesheet" href="../../assets/styles/globals.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="header">
+      <div class="container header__container">
+        <a
+          href="index.html"
+          class="header__logo"
+          aria-label="Online Zoo - Home"
+        >
+          <img
+            src="../../assets/icons/online-zoo-logo.svg"
+            alt="Online Zoo"
+            class="header__logo-img"
+            width="96"
+            height="50"
+          />
+          <h1 class="visually-hidden">Online Zoo</h1>
+        </a>
+        <nav class="header__nav" id="header-nav">
+          <ul class="header__nav-list">
+            <li>
+              <a
+                href="index.html"
+                class="header__nav-link header__nav-link--active"
+                >ABOUT</a
+              >
+            </li>
+            <li>
+              <a href="../map/index.html" class="header__nav-link">MAP</a>
+            </li>
+            <li>
+              <a href="../animal/index.html" class="header__nav-link">ZOOS</a>
+            </li>
+            <li>
+              <a href="../contact/index.html" class="header__nav-link"
+                >CONTACT US</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="header__social">
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="YouTube"
+            title="YouTube"
+          >
+            <img
+              src="../../assets/icons/youtube.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <img
+              src="../../assets/icons/instagram.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="Facebook"
+            title="Facebook"
+          >
+            <img
+              src="../../assets/icons/facebook.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+        </div>
+        <button
+          type="button"
+          class="header__hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="header-nav"
+        >
+          <img
+            src="../../assets/icons/hamburger.svg"
+            alt=""
+            class="header__hamburger-icon header__hamburger-icon--open"
+            width="30"
+            height="30"
+          />
+          <img
+            src="../../assets/icons/close-hamburger.svg"
+            alt=""
+            class="header__hamburger-icon header__hamburger-icon--close"
+            width="30"
+            height="29"
+          />
+        </button>
+      </div>
+      <div class="side-menu" id="side-menu" aria-hidden="true">
+        <button type="button" class="side-menu__close" aria-label="Close menu">
+          <img
+            src="../../assets/icons/close-hamburger.svg"
+            alt=""
+            width="30"
+            height="29"
+          />
+        </button>
+        <nav class="side-menu__nav">
+          <ul class="side-menu__nav-list">
+            <li>
+              <a
+                href="index.html"
+                class="side-menu__nav-link side-menu__nav-link--active"
+                >ABOUT</a
+              >
+            </li>
+            <li>
+              <a href="../map/index.html" class="side-menu__nav-link">MAP</a>
+            </li>
+            <li>
+              <a href="../animal/index.html" class="side-menu__nav-link"
+                >ZOOS</a
+              >
+            </li>
+            <li>
+              <a href="../contact/index.html" class="side-menu__nav-link"
+                >CONTACT US</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"
+                class="side-menu__nav-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DESIGN</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero container">
+        <div class="hero__content">
+          <h1 class="hero__title">Watch your favorite animal online</h1>
+          <p class="hero__description body">
+            Explore the exciting and mysterious world of wild animals in a
+            natural setting without leaving your home.
+          </p>
+          <button class="btn_orange hero__btn">
+            <span>VIEW LIVE CAM</span>
+            <img
+              src="../../assets/icons/union.svg"
+              alt=""
+              width="24"
+              height="22"
+              class="btn__icon"
+            />
+          </button>
+        </div>
+        <div class="hero__banner">
+          <img
+            class="hero__banner-img"
+            src="../../assets/images/hero-banner-sm.jpg"
+            alt="panda"
+          />
+        </div>
+        <div class="hero__banner-md">
+          <img
+            class="hero__banner-img"
+            src="../../assets/images/hero-banner.jpg"
+            alt="panda"
+          />
+        </div>
+      </section>
+
+      <section class="welcome">
+        <div class="welcome__container">
+          <div class="welcome__block welcome__block--1">
+            <div class="welcome__image">
+              <img
+                src="../../assets/images/welcome.png"
+                alt="Bear in natural habitat"
+              />
+            </div>
+            <div class="welcome__text">
+              <h2 class="welcome__title">Welcome to the Online Zoo!</h2>
+              <p class="welcome__description">
+                On our website, using live webcams, fans of all ages can observe
+                various animals. Among them, are Giant pandas, eagles,
+                alligators, forest gorillas, African lions, and others. It is
+                the whole natural world in real-time in front of our cameras. We
+                hope you will enjoy watching closely and explore animals’
+                behavior and habitats! Note: animals are not always on view on
+                cameras, so please check back if you don't see anything.
+              </p>
+            </div>
+          </div>
+          <div class="welcome__block welcome__block--2">
+            <div class="welcome__image">
+              <img
+                src="../../assets/images/how-we-work.png"
+                alt="Two eagles in a tree"
+              />
+            </div>
+            <div class="welcome__text">
+              <h2 class="welcome__title">How we work</h2>
+              <p class="welcome__description body">
+                Online Zoo is a nonprofit committed to inspiring awareness and
+                preservation of nature and wild animals in our zoo and
+                worldwide. To continue these efforts, we need your help. We're
+                so grateful to our supporters. All donations, large and small,
+                go a long way to the conservation efforts of our pets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="donate">
+        <div class="donate__container">
+          <div class="donate__content">
+            <h2 class="donate__title">Your donation makes a difference!</h2>
+            <p class="donate__description body">
+              The Online Zoo's animal webcams are some of the most famous on the
+              internet. Tune in to watch your favourite animals — live, 24/7!
+            </p>
+          </div>
+
+          <div class="donate__action">
+            <p class="donate__action-title">Quick Donate</p>
+            <button
+              type="button"
+              class="btn_donate"
+              aria-label="Choose donation amount"
+            >
+              <span>$ Donation amount</span>
+              <span class="icon">
+                <img
+                  src="../../assets/icons/union.svg"
+                  alt=""
+                  width="24"
+                  height="22"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="pets-in-zoo">
+        <div class="pets-in-zoo__container">
+          <div class="pets-in-zoo__content">
+            <h2 class="pets-in-zoo__title">meet some our Pets</h2>
+            <p class="pets-in-zoo__description body">
+              Do you have a special place in your heart for animals? Who are
+              your favorites? Perhaps you'd like to donate to special ones or
+              all our pets? We think it's important for you to choose how your
+              donation is used.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__top container">
+          <div class="footer__logos">
+            <a
+              href="index.html"
+              class="footer__logo"
+              aria-label="Online Zoo - Home"
+            >
+              <img
+                src="../../assets/icons/online-zoo-logo.svg"
+                alt="Online Zoo"
+                width="96"
+                height="50"
+              />
+            </a>
+            <a
+              href="https://www.yemdigital.com/"
+              class="footer__yem"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Yem Digital"
+            >
+              <img
+                src="../../assets/icons/yem-logo.svg"
+                alt="Yem Digital"
+                width="50"
+                height="50"
+              />
+            </a>
+            <a
+              href="https://rs.school/js/"
+              class="footer__rs"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RS School"
+            >
+              <img
+                src="../../assets/icons/rs-school-js-logo.svg"
+                alt="RS School"
+                width="138"
+                height="52"
+              />
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li><a href="index.html" class="footer__nav-link">ABOUT</a></li>
+              <li>
+                <a href="../map/index.html" class="footer__nav-link">MAP</a>
+              </li>
+              <li>
+                <a href="../animal/index.html" class="footer__nav-link">ZOOS</a>
+              </li>
+              <li>
+                <a href="../contact/index.html" class="footer__nav-link"
+                  >CONTACT US</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <button class="btn_turquoise-outlined">
+            <span>Donate for volunteers</span>
+            <img
+              src="../../assets/icons/union.svg"
+              alt=""
+              width="24"
+              height="22"
+              class="btn__icon"
+            />
+          </button>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img
+                src="../../assets/icons/youtube.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img
+                src="../../assets/icons/instagram.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img
+                src="../../assets/icons/facebook.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="footer__divider"></div>
+        <div class="footer__bottom container">
+          <div class="footer__copyright">
+            <span>© 2021 DinaK</span>
+            <span>© Yem Digital</span>
+            <span>© RSSchool</span>
+          </div>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img
+                src="../../assets/icons/youtube.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img
+                src="../../assets/icons/instagram.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img
+                src="../../assets/icons/facebook.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
