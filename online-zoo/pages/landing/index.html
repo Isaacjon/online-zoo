@@ -240,7 +240,7 @@
           </div>
         </div>
       </section>
-      <section class="donate">
+      <section class="donate" id="donate">
         <div class="donate__container">
           <div class="donate__content">
             <h2 class="donate__title">Your donation makes a difference!</h2>
@@ -254,7 +254,7 @@
             <p class="donate__action-title">Quick Donate</p>
             <button
               type="button"
-              class="btn_donate"
+              class="btn_donate donate-trigger"
               aria-label="Choose donation amount"
             >
               <span>$ Donation amount</span>
@@ -280,7 +280,357 @@
               all our pets? We think it's important for you to choose how your
               donation is used.
             </p>
+            <div class="pets-in-zoo__nav">
+              <button
+                type="button"
+                class="btn_nav btn_nav--navy pets-in-zoo__nav-btn pets-in-zoo__nav-btn--prev"
+                aria-label="Previous cards"
+              >
+                <img src="../../assets/icons/union.svg" alt="" width="24" height="22" />
+              </button>
+              <button
+                type="button"
+                class="btn_nav btn_nav--navy pets-in-zoo__nav-btn pets-in-zoo__nav-btn--next"
+                aria-label="Next cards"
+              >
+                <img src="../../assets/icons/union.svg" alt="" width="24" height="22" />
+              </button>
+            </div>
           </div>
+          <div class="pets-in-zoo__slider">
+            <div class="pets-in-zoo__carousel" id="pets-carousel">
+            </div>
+          </div>
+          <a href="../animal/index.html" class="pets-in-zoo__choose-link">
+            <button class="btn_navy-outlined">
+              <span>CHOOSE YOUR FAVOURITE</span>
+              <img
+                src="../../assets/icons/union.svg"
+                alt="arrow right"
+                width="24"
+                height="22"
+                class="btn__icon"
+              />
+            </button>
+          </a>
+          
+        </div>
+      </section>
+
+      <section class="paynfeed">
+        <div class="paynfeed__container container">
+          <h2 class="paynfeed__heading">Pay and Feed</h2>
+
+          <div class="paynfeed__steps">
+            <article class="paynfeed__step">
+              <header class="paynfeed__step-header">
+                <span class="paynfeed__step-num">01</span>
+                <span class="paynfeed__step-line" aria-hidden="true"></span>
+              </header>
+              <div class="paynfeed__step-body">
+                <div class="paynfeed__step-photo">
+                  <img src="../../assets/images/feed/paynfeed-step-1.jpg" alt="Chimpanzee" />
+                </div>
+                <div class="paynfeed__step-text">
+                  <div class="paynfeed__step-icon">
+                    <img src="../../assets/icons/feed/paynfeed-icon-1.svg" alt="" />
+                  </div>
+                  <h3 class="paynfeed__step-title">Your donation has an impact</h3>
+                  <p class="paynfeed__step-desc">
+                    Providing our animals with high-quality nutritious diets is
+                    just one element of animal care at our Zoo. We do all the
+                    best so that our animals can eat food similar to what they
+                    might find in their natural habitats while making sure they
+                    get the right mix of nutrients, proteins, and vitamins to be
+                    happy and healthy. Please help us provide nutritious food
+                    for our animals by donating. The generosity of people like
+                    you can help us make sure that our animals enjoy good food
+                    that keeps them in great condition.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paynfeed__step">
+              <header class="paynfeed__step-header">
+                <span class="paynfeed__step-num">02</span>
+                <span class="paynfeed__step-line" aria-hidden="true"></span>
+              </header>
+              <div class="paynfeed__step-body">
+                <div class="paynfeed__step-photo">
+                  <img src="../../assets/images/feed/paynfeed-step-2.jpg" alt="Bananas in hands" />
+                </div>
+                <div class="paynfeed__step-text">
+                  <div class="paynfeed__step-icon">
+                    <img src="../../assets/icons/feed/paynfeed-icon-2.svg" alt="" />
+                  </div>
+                  <h3 class="paynfeed__step-title">Make a donation</h3>
+                  <p class="paynfeed__step-desc">
+                    You can donate through your credit card without any fees. It
+                    is easy and safe. We do not keep donors' personal
+                    information on an online network. Choose an amount to give
+                    and the pet's name if needed. One of the most effective ways
+                    you can give is by making regular donations.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="paynfeed__step">
+              <header class="paynfeed__step-header">
+                <span class="paynfeed__step-num">03</span>
+                <span class="paynfeed__step-line" aria-hidden="true"></span>
+              </header>
+              <div class="paynfeed__step-body">
+                <div class="paynfeed__step-photo">
+                  <img src="../../assets/images/feed/paynfeed-step-3.jpg" alt="Chimpanzee eating" />
+                </div>
+                <div class="paynfeed__step-text">
+                  <div class="paynfeed__step-icon">
+                    <img src="../../assets/icons/feed/paynfeed-icon-3.svg" alt="" />
+                  </div>
+                  <h3 class="paynfeed__step-title">
+                    Bring your food charity — straight to your favorites pets.
+                  </h3>
+                  <p class="paynfeed__step-desc">
+                    After your donation, the animal receives its favorite foods.
+                    You can support your favorite animals or any animal you care
+                    about and make a real personal impact. Never doubt that your
+                    donation can make a difference even if it is small.
+                  </p>
+                  <a href="#donate" class="btn_orange paynfeed__action donate-trigger" role="button">
+                    <span>Donate Now</span>
+                    <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <div class="testimonials__wrapper">
+          <div class="testimonials__main">
+            <header class="testimonials__intro">
+              <h3 class="testimonials__heading">What our users think</h3>
+              <p class="testimonials__subtext">
+                We are continuously striving to improve the experiences of our
+                future guests. Below you can leave your own feedback, or simply
+                view feedback from past clients.
+              </p>
+            </header>
+
+            <div class="testimonials__deck">
+              <div class="testimonials__scroll" id="testimonials-scroll">
+                <div class="testimonials__list" role="list">
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                  <article class="feedback-tile" role="listitem">
+                    <span class="feedback-tile__quote" aria-hidden="true">
+                      <img src="../../assets/icons/quote.svg" alt="" />
+                    </span>
+                    <h4 class="feedback-tile__meta">New Jersey, June 2020</h4>
+                    <p class="feedback-tile__body">
+                      I am writing to thank you for your mission is to bring
+                      people closer to nature! Like myself, children were very
+                      impressed by the opportunity to explore the life of
+                      incredible animals in real-time.
+                    </p>
+                    <cite class="feedback-tile__author">Karen Maithlan</cite>
+                  </article>
+                </div>
+              </div>
+
+              <nav class="testimonials__nav" aria-label="Testimonials navigation">
+                <button type="button" class="testimonials__nav-btn testimonials__nav-btn--prev" aria-label="Previous">
+                  <img src="../../assets/icons/union.svg" alt="" width="24" height="22" />
+                </button>
+                <button type="button" class="testimonials__nav-btn testimonials__nav-btn--next" aria-label="Next">
+                  <img src="../../assets/icons/union.svg" alt="" width="24" height="22" />
+                </button>
+              </nav>
+
+              <div class="testimonials__pager" role="tablist">
+                <button type="button" class="testimonials__pager-dot testimonials__pager-dot--active" aria-label="Go to slide 1" aria-selected="true"></button>
+                <button type="button" class="testimonials__pager-dot" aria-label="Go to slide 2" aria-selected="false"></button>
+                <button type="button" class="testimonials__pager-dot" aria-label="Go to slide 3" aria-selected="false"></button>
+                <button type="button" class="testimonials__pager-dot" aria-label="Go to slide 4" aria-selected="false"></button>
+              </div>
+            </div>
+          </div>
+          <a href="../contact/index.html" class="testimonials__cta">
+            <span>Leave Feedback</span>
+            <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+          </a>
+        </div>
+      </section>
+
+      <section class="support-animals">
+        <div class="support-animals__container container">
+          <div class="support-animals__header">
+            <h3 class="support-animals__title">Care for the animals you love</h3>
+            <p class="support-animals__subtitle">
+              You can help to look after the animals you love with your gift
+              today
+            </p>
+          </div>
+
+          <div class="support-animals__slider">
+            <ul class="support-animals__list">
+              <li class="support-animals__image">
+                <img src="../../assets/images/donate/koala.jpg" alt="Koala" />
+              </li>
+
+              <li class="support-card">
+                <a href="../animal/index.html?animal=panda" class="support-card__link"></a>
+                <div class="support-card__image">
+                  <img src="../../assets/images/donate/panda.jpg" alt="Panda" />
+                </div>
+                <div class="support-card__content">
+                  <p class="support-card__text">
+                    Your $30 could give Lucas a slice of panda cake, made with
+                    our secret recipe.
+                  </p>
+                  <a href="../animal/index.html?animal=panda" class="btn_orange-ghost support-card__btn">
+                    <span>Feed</span>
+                    <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+                  </a>
+                </div>
+              </li>
+
+              <li class="support-card">
+                <a href="../animal/index.html?animal=tiger" class="support-card__link"></a>
+                <div class="support-card__image">
+                  <img src="../../assets/images/donate/tiger.jpg" alt="Tiger" />
+                </div>
+                <div class="support-card__content">
+                  <p class="support-card__text">
+                    Your $150 will help to care for Senja, a Sumatran tiger, for
+                    three weeks.
+                  </p>
+                  <a href="../animal/index.html?animal=tiger" class="btn_orange-ghost support-card__btn">
+                    <span>Feed</span>
+                    <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+                  </a>
+                </div>
+              </li>
+
+              <li class="support-card">
+                <a href="../animal/index.html?animal=lemur" class="support-card__link"></a>
+                <div class="support-card__image">
+                  <img src="../../assets/images/donate/lemur.jpg" alt="Lemur" />
+                </div>
+                <div class="support-card__content">
+                  <p class="support-card__text">
+                    With your support, we can give Andy his favorite fruits.
+                    Especially when it's not fruit season in its natural
+                    habitat.
+                  </p>
+                  <a href="../animal/index.html?animal=lemur" class="btn_orange-ghost support-card__btn">
+                    <span>Feed</span>
+                    <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+                  </a>
+                </div>
+              </li>
+
+              <li class="support-card">
+                <a href="../animal/index.html?animal=eagle" class="support-card__link"></a>
+                <div class="support-card__image">
+                  <img src="../../assets/images/donate/eagle.jpg" alt="Eagles" />
+                </div>
+                <div class="support-card__content">
+                  <p class="support-card__text">
+                    Sam & Lora have hatched and raised numerous young and will
+                    be happy with your help.
+                  </p>
+                  <a href="../animal/index.html?animal=eagle" class="btn_orange-ghost support-card__btn">
+                    <span>Feed</span>
+                    <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="support-animals__pagination">
+            <li class="support-animals__pagination-item support-animals__pagination-item_active"></li>
+            <li class="support-animals__pagination-item"></li>
+            <li class="support-animals__pagination-item"></li>
+            <li class="support-animals__pagination-item"></li>
+          </ul>
+
+          <a href="../animal/index.html" class="btn_navy-outlined support-animals__btn">
+            <span>Choose your favourite</span>
+            <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+          </a>
+        </div>
+
+        <div class="support-animals__hero">
+          <img class="support-animals__hero-img" src="../../assets/images/donate/touch-the-animal.jpg" alt="Touch the animal" />
         </div>
       </section>
     </main>
@@ -345,7 +695,7 @@
               </li>
             </ul>
           </nav>
-          <button class="btn_turquoise-outlined">
+          <button type="button" class="btn_turquoise-outlined care-modal-trigger">
             <span>Donate for volunteers</span>
             <img
               src="../../assets/icons/union.svg"
@@ -418,6 +768,199 @@
         </div>
       </div>
     </footer>
+
+    <div class="care-modal" id="care-modal" aria-hidden="true">
+      <div class="care-modal__backdrop"></div>
+      <div
+        class="care-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="care-modal-title"
+      >
+        <button
+          class="care-modal__close"
+          type="button"
+          aria-label="Close donation popup"
+        >
+          &times;
+        </button>
+        <div class="care-modal__image">
+          <img
+            src="../../assets/images/care-modal.jpg"
+            alt="Lion paw and human hand together"
+          >
+        </div>
+        <div class="care-modal__body">
+          <h2 class="care-modal__title" id="care-modal-title">
+            TOGETHER WE CARE, SAVE AND PROTECT!
+          </h2>
+          <p class="care-modal__text">
+            Your most generous gift not only cares for countless animals, but it
+            also offers hope and a vital lifeline to the world's most endangered
+            wildlife relying on us to survive.
+          </p>
+          <div class="care-modal__amounts">
+            <button class="care-modal__amount" type="button" data-value="20">$20</button>
+            <button class="care-modal__amount" type="button" data-value="30">$30</button>
+            <button class="care-modal__amount" type="button" data-value="50">$50</button>
+            <button class="care-modal__amount" type="button" data-value="80">$80</button>
+            <button class="care-modal__amount" type="button" data-value="100">$100</button>
+            <button class="care-modal__amount" type="button" data-value="other">OTHER AMOUNT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="give-modal" id="give-modal" aria-hidden="true">
+      <div class="give-modal__backdrop"></div>
+      <div
+        class="give-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="give-modal-title"
+      >
+        <header class="give-modal__header">
+          <h2 class="give-modal__heading" id="give-modal-title">
+            MAKE YOUR DONATION
+          </h2>
+        </header>
+
+        <div class="give-modal__step give-modal__step--active" data-step="1">
+          <h3 class="give-modal__section-heading">Donation Information:</h3>
+          <div class="give-modal__section-content">
+            <p class="give-modal__label give-modal__label--centered">
+              <span class="give-modal__asterisk">*</span> Choose your
+              donation amount:
+            </p>
+            <div class="give-modal__amount-grid">
+              <button class="give-modal__amount-option give-modal__amount-option--active" type="button" data-value="10">$10</button>
+              <button class="give-modal__amount-option" type="button" data-value="20">$20</button>
+              <button class="give-modal__amount-option" type="button" data-value="30">$30</button>
+              <button class="give-modal__amount-option" type="button" data-value="50">$50</button>
+              <button class="give-modal__amount-option" type="button" data-value="80">$80</button>
+              <button class="give-modal__amount-option" type="button" data-value="100">$100</button>
+            </div>
+            <div class="give-modal__custom-row">
+              <button class="give-modal__custom-btn" type="button">OTHER AMOUNT</button>
+              <input class="give-modal__input give-modal__input--custom" type="number" min="1" inputmode="numeric" placeholder="Enter amount">
+            </div>
+            <div class="give-modal__pet-row">
+              <span class="give-modal__pet-label">FOR SPECIAL PET</span>
+              <div class="give-modal__select-wrap">
+                <button class="give-modal__select-trigger" type="button" aria-expanded="false">
+                  <span class="give-modal__select-text">Choose your favourite</span>
+                  <span class="give-modal__select-arrow" aria-hidden="true">
+                    <img src="../../assets/icons/down-arrow.svg" alt="" width="17" height="10" />
+                  </span>
+                </button>
+                <ul class="give-modal__select-list">
+                  <li><button class="give-modal__select-item" type="button">Lucas the Panda</button></li>
+                  <li><button class="give-modal__select-item" type="button">Andy the Lemur</button></li>
+                  <li><button class="give-modal__select-item" type="button">Glen the Gorilla</button></li>
+                  <li><button class="give-modal__select-item" type="button">Mike the Alligator</button></li>
+                  <li><button class="give-modal__select-item" type="button">Sam &amp; Lora the eagles</button></li>
+                  <li><button class="give-modal__select-item give-modal__select-item--chosen" type="button">Liz the Koala</button></li>
+                  <li><button class="give-modal__select-item" type="button">Shake the Lion</button></li>
+                  <li><button class="give-modal__select-item" type="button">Senja the Tiger</button></li>
+                </ul>
+              </div>
+            </div>
+            <label class="give-modal__checkbox-wrap">
+              <input class="give-modal__checkbox" type="checkbox">
+              <span class="give-modal__checkbox-box">
+                <img src="../../assets/icons/check.svg" alt="" class="give-modal__checkbox-icon" width="14" height="11" />
+              </span>
+              <span class="give-modal__checkbox-text">Make this a monthly recurring gift</span>
+            </label>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots">
+                <span class="give-modal__dot give-modal__dot--active" data-step="1"></span>
+                <span class="give-modal__dot" data-step="2"></span>
+                <span class="give-modal__dot" data-step="3"></span>
+              </div>
+              <span class="give-modal__spacer"></span>
+              <button class="give-modal__btn give-modal__btn--next btn_turquoise" type="button" data-goto="2">
+                NEXT
+                <span class="give-modal__btn-arrow">
+                  <img src="../../assets/icons/union.svg" alt="" width="24" height="22" />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="give-modal__step" data-step="2">
+          <h3 class="give-modal__section-heading">Billing Information:</h3>
+          <div class="give-modal__section-content">
+            <div class="give-modal__field">
+              <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Name</p>
+              <input class="give-modal__input" type="text" placeholder="First and last name">
+            </div>
+            <div class="give-modal__field">
+              <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Email Address</p>
+              <input class="give-modal__input" type="email" placeholder="Enter your email">
+            </div>
+            <p class="give-modal__note">You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots">
+                <span class="give-modal__dot give-modal__dot--active" data-step="1"></span>
+                <span class="give-modal__dot give-modal__dot--active" data-step="2"></span>
+                <span class="give-modal__dot" data-step="3"></span>
+              </div>
+              <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="1">Back</button>
+              <button class="give-modal__btn give-modal__btn--next" type="button" data-goto="3">NEXT</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="give-modal__step" data-step="3">
+          <h3 class="give-modal__section-heading">Payment Information:</h3>
+          <div class="give-modal__section-content">
+            <div class="give-modal__fields-row">
+              <div class="give-modal__field">
+                <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Credit Card Number</p>
+                <input class="give-modal__input" type="text" placeholder="0000 0000 0000 0000">
+              </div>
+              <div class="give-modal__field">
+                <p class="give-modal__label"><span class="give-modal__asterisk">*</span> CVV Number</p>
+                <input class="give-modal__input" type="text" placeholder="123">
+              </div>
+            </div>
+            <div class="give-modal__field give-modal__field--full">
+              <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Expiration Date</p>
+              <div class="give-modal__date-row">
+                <div class="give-modal__select-wrap give-modal__select-wrap--native">
+                  <select class="give-modal__select-native">
+                    <option value="">Month</option>
+                    <option value="01">01</option><option value="02">02</option><option value="03">03</option>
+                    <option value="04">04</option><option value="05">05</option><option value="06">06</option>
+                    <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                    <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                  </select>
+                </div>
+                <div class="give-modal__select-wrap give-modal__select-wrap--native">
+                  <select class="give-modal__select-native">
+                    <option value="">Year</option>
+                    <option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option>
+                    <option value="2029">2029</option><option value="2030">2030</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots">
+                <span class="give-modal__dot give-modal__dot--active" data-step="1"></span>
+                <span class="give-modal__dot give-modal__dot--active" data-step="2"></span>
+                <span class="give-modal__dot give-modal__dot--active" data-step="3"></span>
+              </div>
+              <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="2">Back</button>
+              <button class="give-modal__btn give-modal__btn--submit" type="button">COMPLETE DONATION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

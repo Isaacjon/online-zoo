@@ -136,7 +136,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 26px 35px;
+  padding: 9px 28px;
   gap: 10px;
 
   border: 1px solid var(--navy);
@@ -161,6 +161,10 @@
     img {
       filter: brightness(0) invert(1);
     }
+  }
+
+  @media (min-width: 640px) {
+    padding: 26px 35px;
   }
 }
 
@@ -238,4 +242,56 @@
     filter: invert(56%) sepia(77%) saturate(1230%) hue-rotate(352deg)
       brightness(98%) contrast(101%);
   }
+}
+
+.btn_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn_nav img {
+  width: 24px;
+  height: 22px;
+}
+
+.btn_nav--light {
+  border: 1px solid var(--white);
+}
+
+.btn_nav--light img {
+  filter: brightness(0) invert(1);
+}
+
+.btn_nav--light:hover {
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.btn_nav--light:hover img {
+  filter: invert(15%) sepia(30%) saturate(500%) hue-rotate(220deg);
+}
+
+.btn_nav--navy {
+  border: 1px solid var(--navy);
+}
+
+.btn_nav--navy img {
+  filter: invert(15%) sepia(30%) saturate(500%) hue-rotate(220deg);
+}
+
+.btn_nav--navy:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.btn_nav--navy:hover img {
+  filter: brightness(0) invert(1);
 }
