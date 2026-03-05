@@ -1,6 +1,6 @@
 .nav-panel {
   position: absolute;
-  top: 110px;
+  top: 0px;
   left: 0;
   z-index: 2000;
   background-color: var(--navy);
@@ -240,6 +240,14 @@
     height: 35px;
     width: 35px;
   }
+}
+
+.sticky-aside {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 0;
 }
 
 .nav-panel--collapsed {
