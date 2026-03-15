@@ -1,7 +1,3 @@
-/**
- * Pet ID → slug mapping for image paths.
- * Fallback: pets/{slug}.jpg when zoos/{slug}/ is not available.
- */
 export const PET_ID_TO_SLUG: Record<number, string> = {
   1: "panda",
   2: "lemur",

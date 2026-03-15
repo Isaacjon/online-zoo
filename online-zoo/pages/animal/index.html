@@ -79,6 +79,13 @@
         </div>
       </aside>
     </div>
+    <div class="facts-overlay" id="facts-overlay" aria-hidden="true">
+      <div class="zoos-loader" aria-busy="true">
+        <div class="zoos-loader__spinner"></div>
+        <p class="zoos-loader__text">Loading...</p>
+      </div>
+    </div>
+
     <main class="main">
 
       <section class="stream">
@@ -254,6 +261,17 @@
       </div>
     </div>
 
+    <div class="map-modal" id="map-modal" aria-hidden="true">
+      <div class="map-modal__backdrop"></div>
+      <div class="map-modal__panel" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+        <button type="button" class="map-modal__close" aria-label="Close map">
+          <img src="../../assets/icons/close-hamburger.svg" alt="" width="30" height="30" />
+        </button>
+        <h2 class="map-modal__title" id="map-modal-title">View on Map</h2>
+        <div class="map-modal__map" id="map-modal-container"></div>
+      </div>
+    </div>
+
     <div class="give-modal" id="give-modal" aria-hidden="true">
       <div class="give-modal__backdrop"></div>
       <div class="give-modal__panel" role="dialog" aria-modal="true" aria-labelledby="give-modal-title">
@@ -349,6 +367,6 @@
     </div>
 
     <script type="module" src="../../src/auth-init.ts"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="../../src/pages/animal/index.ts"></script>
   </body>
 </html>
