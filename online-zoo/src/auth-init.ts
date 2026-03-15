@@ -1,11 +1,13 @@
 import { initAuth } from "./auth";
+import { initHeader } from "./header/header";
 
-function runAuthInit(): void {
-  initAuth();
+async function runAuthInit(): Promise<void> {
+  await initAuth();
+  initHeader();
 }
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", runAuthInit);
+  document.addEventListener("DOMContentLoaded", () => runAuthInit());
 } else {
   runAuthInit();
 }
