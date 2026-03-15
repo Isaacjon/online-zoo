@@ -92,14 +92,195 @@
     </header>
 
     <main>
-      <section class="register-placeholder">
-        <div class="register-placeholder__inner container">
-          <h2 class="register-placeholder__heading">Registration</h2>
-          <p class="register-placeholder__text">Registration form coming soon.</p>
-          <a href="../sign-in/index.html" class="register-placeholder__link btn_turquoise">
-            <span>Back to Sign In</span>
-            <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
-          </a>
+      <section class="touch" aria-labelledby="register-heading">
+        <div class="touch__inner container">
+          <div class="touch__grid">
+            <div class="touch__intro">
+              <h2 id="register-heading" class="touch__heading">Registration</h2>
+              <p class="touch__description">
+                Create an account to access your profile, save your favourite
+                animals, and make donations. Already have an account?
+                <a href="../sign-in/index.html" class="touch__link">Sign in here</a>.
+              </p>
+            </div>
+
+            <form class="touch__form feedback-form" id="register-form" novalidate autocomplete="off">
+              <div class="feedback-form__row" id="register-login-row">
+                <label for="register-login" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Login
+                </label>
+                <div class="feedback-form__input-wrap">
+                  <input
+                    id="register-login"
+                    type="text"
+                    class="feedback-form__input"
+                    name="login"
+                    placeholder="Enter your login"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="register-login-error" role="alert"></span>
+              </div>
+              <div class="feedback-form__row" id="register-password-row">
+                <label for="register-password" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Password
+                </label>
+                <div class="feedback-form__input-wrap feedback-form__input-wrap--password">
+                  <input
+                    id="register-password"
+                    type="password"
+                    class="feedback-form__input"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <button
+                    type="button"
+                    id="register-password-toggle"
+                    class="feedback-form__password-toggle"
+                    aria-label="Show password"
+                    title="Show password"
+                  >
+                    <img
+                      src="../../assets/icons/eye.svg"
+                      alt=""
+                      class="feedback-form__password-toggle-icon"
+                      width="24"
+                      height="24"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="register-password-error" role="alert"></span>
+              </div>
+              <div class="feedback-form__row" id="register-confirm-row">
+                <label for="register-confirm" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Confirm Password
+                </label>
+                <div class="feedback-form__input-wrap feedback-form__input-wrap--password">
+                  <input
+                    id="register-confirm"
+                    type="password"
+                    class="feedback-form__input"
+                    name="confirm"
+                    placeholder="Confirm your password"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <button
+                    type="button"
+                    id="register-confirm-toggle"
+                    class="feedback-form__password-toggle"
+                    aria-label="Show password"
+                    title="Show password"
+                  >
+                    <img
+                      src="../../assets/icons/eye.svg"
+                      alt=""
+                      class="feedback-form__password-toggle-icon"
+                      width="24"
+                      height="24"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="register-confirm-error" role="alert"></span>
+              </div>
+              <div class="feedback-form__row" id="register-name-row">
+                <label for="register-name" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Name
+                </label>
+                <div class="feedback-form__input-wrap">
+                  <input
+                    id="register-name"
+                    type="text"
+                    class="feedback-form__input"
+                    name="name"
+                    placeholder="Enter your name"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="register-name-error" role="alert"></span>
+              </div>
+              <div class="feedback-form__row" id="register-email-row">
+                <label for="register-email" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Email
+                </label>
+                <div class="feedback-form__input-wrap">
+                  <input
+                    id="register-email"
+                    type="email"
+                    class="feedback-form__input"
+                    name="email"
+                    placeholder="Enter your email"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="register-email-error" role="alert"></span>
+              </div>
+              <span class="feedback-form__form-error" id="register-form-error" role="alert"></span>
+              <button type="submit" class="touch__submit btn_turquoise" id="register-btn" disabled>
+                <span class="register-form__btn-text">REGISTER</span>
+                <img
+                  src="../../assets/icons/union.svg"
+                  alt=""
+                  width="24"
+                  height="22"
+                  class="btn__icon register-form__btn-icon"
+                />
+                <span class="register-form__loader" aria-hidden="true"></span>
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>

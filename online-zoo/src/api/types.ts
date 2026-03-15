@@ -70,6 +70,13 @@ export interface RegisterRequest {
   email: string;
 }
 
+export interface RegisterResponse {
+  data: {
+    access_token: string;
+    user: Omit<UserProfile, "id"> & { id?: number };
+  };
+}
+
 export interface UserProfile {
   id: number;
   login: string;
@@ -90,9 +97,4 @@ export interface DonationRequest {
 
 export interface DonationResponse {
   message?: string;
-}
-
-export interface ApiError {
-  message?: string;
-  error?: string;
 }

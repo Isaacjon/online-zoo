@@ -11,13 +11,13 @@ export class ApiError extends Error {
   }
 }
 
-export interface RequestOptions {
+interface RequestOptions {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   body?: unknown;
   token?: string;
 }
 
-export function buildUrl(path: string): string {
+function buildUrl(path: string): string {
   const base = API_BASE_URL.replace(/\/$/, "");
   const pathPart = path.startsWith("/") ? path : `/${path}`;
   return `${base}${pathPart}`;
@@ -50,6 +50,18 @@ export async function apiFetch<T>(
   const response = await fetch(url, init);
 
   let parsedBody: unknown;
+
+  function extractErrorMessage(body: unknown, res: Response): string {
+    if (typeof body === "object" && body !== null) {
+      const obj = body as Record<string, unknown>;
+      for (const key of ["message", "error", "detail"]) {
+        const val = obj[key];
+        if (typeof val === "string" && val.length > 0) return val;
+      }
+    }
+    if (res.status === 409) return "User already exists";
+    return res.statusText || `Request failed with status ${res.status}`;
+  }
   const contentType = response.headers.get("content-type");
   if (contentType?.includes("application/json")) {
     try {
@@ -62,13 +74,7 @@ export async function apiFetch<T>(
   }
 
   if (!response.ok) {
-    const message =
-      typeof parsedBody === "object" &&
-      parsedBody !== null &&
-      "message" in parsedBody &&
-      typeof (parsedBody as { message: unknown }).message === "string"
-        ? (parsedBody as { message: string }).message
-        : response.statusText || `Request failed with status ${response.status}`;
+    const message = extractErrorMessage(parsedBody, response);
     throw new ApiError(message, response.status, parsedBody);
   }
 

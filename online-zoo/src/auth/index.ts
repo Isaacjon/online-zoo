@@ -6,4 +6,5 @@ export {
   isLoggedIn,
   initAuth,
   login,
+  register,
 } from "./auth";

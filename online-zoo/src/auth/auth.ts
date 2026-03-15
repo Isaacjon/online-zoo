@@ -1,5 +1,10 @@
-import { getProfile as fetchProfile, login as apiLogin } from "../api/api";
+import {
+  getProfile as fetchProfile,
+  login as apiLogin,
+  register as apiRegister,
+} from "../api/api";
 import type { UserProfile } from "../api/types";
+import type { RegisterRequest } from "../api/types";
 
 const AUTH_TOKEN_KEY = "online-zoo-auth-token";
 const AUTH_PROFILE_KEY = "online-zoo-auth-profile";
@@ -67,6 +72,13 @@ export async function login(
   credentials: { login: string; password: string }
 ): Promise<void> {
   const response = await apiLogin(credentials);
+  const { access_token, user } = response.data;
+  setToken(access_token);
+  setProfile({ id: 0, ...user });
+}
+
+export async function register(data: RegisterRequest): Promise<void> {
+  const response = await apiRegister(data);
   const { access_token, user } = response.data;
   setToken(access_token);
   setProfile({ id: 0, ...user });

@@ -7,6 +7,7 @@ import type {
   LoginRequest,
   LoginResponse,
   RegisterRequest,
+  RegisterResponse,
   ProfileResponse,
   DonationRequest,
   DonationResponse,
@@ -35,8 +36,8 @@ export async function login(credentials: LoginRequest): Promise<LoginResponse> {
   });
 }
 
-export async function register(data: RegisterRequest): Promise<void> {
-  await apiFetch<unknown>("/auth/register", {
+export async function register(data: RegisterRequest): Promise<RegisterResponse> {
+  return apiFetch<RegisterResponse>("/auth/register", {
     method: "POST",
     body: data,
   });

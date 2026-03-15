@@ -15,10 +15,8 @@ export type {
   ProfileResponse,
   DonationRequest,
   DonationResponse,
-  ApiError as ApiErrorType,
 } from "./types";
-export { ApiError, apiFetch, buildUrl } from "./client";
-export type { RequestOptions } from "./client";
+export { ApiError, apiFetch } from "./client";
 export {
   getPets,
   getPetById,
