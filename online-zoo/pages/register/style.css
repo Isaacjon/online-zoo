@@ -1,0 +1,25 @@
+.register-placeholder {
+  padding: 100px 0;
+}
+
+.register-placeholder__inner {
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.register-placeholder__heading {
+  color: var(--turquoise);
+  font-weight: 600;
+  font-size: 54px;
+  text-transform: uppercase;
+}
+
+.register-placeholder__text {
+  font-size: 18px;
+  color: var(--navy);
+}

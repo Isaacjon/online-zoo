@@ -5,4 +5,5 @@ export {
   getProfile,
   isLoggedIn,
   initAuth,
+  login,
 } from "./auth";

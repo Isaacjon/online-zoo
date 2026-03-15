@@ -25,6 +25,8 @@ export default defineConfig({
         "pages/landing/index": path.resolve(__dirname, "online-zoo/pages/landing/index.html"),
         "pages/map/index": path.resolve(__dirname, "online-zoo/pages/map/index.html"),
         "pages/contact/index": path.resolve(__dirname, "online-zoo/pages/contact/index.html"),
+        "pages/sign-in/index": path.resolve(__dirname, "online-zoo/pages/sign-in/index.html"),
+        "pages/register/index": path.resolve(__dirname, "online-zoo/pages/register/index.html"),
         "pages/animal/index": path.resolve(__dirname, "online-zoo/pages/animal/index.html"),
       },
     },

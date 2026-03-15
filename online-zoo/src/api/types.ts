@@ -57,7 +57,10 @@ export interface LoginRequest {
 }
 
 export interface LoginResponse {
-  token: string;
+  data: {
+    access_token: string;
+    user: Omit<UserProfile, "id"> & { id?: number };
+  };
 }
 
 export interface RegisterRequest {
