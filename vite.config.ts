@@ -20,6 +20,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
+        index: path.resolve(__dirname, "online-zoo/index.html"),
         "pages/landing/index": path.resolve(__dirname, "online-zoo/pages/landing/index.html"),
         "pages/map/index": path.resolve(__dirname, "online-zoo/pages/map/index.html"),
         "pages/contact/index": path.resolve(__dirname, "online-zoo/pages/contact/index.html"),
