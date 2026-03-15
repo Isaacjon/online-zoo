@@ -413,6 +413,10 @@ body.care-modal-open {
   padding: 0 10px;
 }
 
+.give-modal__select-wrap--chosen .give-modal__select-text {
+  color: #1f1f1f;
+}
+
 .give-modal__select-arrow {
   display: flex;
   align-items: center;
@@ -468,6 +472,16 @@ body.care-modal-open {
   background-color: #80cfc9;
 }
 
+.give-modal__select-item--retry {
+  color: #a4acb5;
+  font-style: italic;
+}
+
+.give-modal__select-item--retry:hover,
+.give-modal__select-item--retry:focus-visible {
+  background-color: #f2f2f2;
+}
+
 .give-modal__checkbox-wrap {
   display: inline-flex;
   align-items: center;
@@ -518,6 +532,64 @@ body.care-modal-open {
   margin-bottom: 30px;
 }
 
+.give-modal__field--invalid .give-modal__input,
+.give-modal__custom-row--invalid .give-modal__input {
+  border-color: #c0392b;
+}
+
+.give-modal__error {
+  display: block;
+  color: #c0392b;
+  font-size: 14px;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+.give-modal__error[hidden] {
+  display: none;
+}
+
+.give-modal__saved-cards-wrap {
+  margin-bottom: 24px;
+}
+
+.give-modal__saved-cards-wrap--hidden,
+.give-modal__save-card-wrap--hidden {
+  display: none;
+}
+
+.give-modal__save-card-wrap {
+  margin-bottom: 24px;
+}
+
+.give-modal__toast {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: var(--turquoise);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 10;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-width: calc(100% - 48px);
+  text-align: center;
+  pointer-events: none;
+}
+
+.give-modal__toast--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.give-modal__toast--error {
+  background-color: #c0392b;
+}
+
 .give-modal__note {
   color: #535353;
   font-size: 18px;
@@ -552,10 +624,14 @@ body.care-modal-open {
   border: 1px solid #2f2f2f;
   border-radius: 5px;
   background-color: transparent;
-  color: #a4acb5;
+  color: #1f1f1f;
   font-size: 18px;
   padding: 0 70px 0 20px;
   appearance: none;
+}
+
+.give-modal__select-native--empty {
+  color: #a4acb5;
 }
 
 .give-modal__nav {
@@ -609,6 +685,16 @@ body.care-modal-open {
   background-color: var(--turquoise-hover);
 }
 
+.give-modal__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.give-modal__btn:disabled:hover,
+.give-modal__btn:disabled:focus-visible {
+  background-color: var(--turquoise);
+}
+
 .give-modal__btn--back {
   background: none;
   color: var(--turquoise);
@@ -629,6 +715,16 @@ body.care-modal-open {
 .give-modal__btn--submit:hover,
 .give-modal__btn--submit:focus-visible {
   background-color: var(--orange-hover);
+}
+
+.give-modal__btn--submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.give-modal__btn--submit:disabled:hover,
+.give-modal__btn--submit:disabled:focus-visible {
+  background-color: var(--orange);
 }
 
 .give-modal__spacer {

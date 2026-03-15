@@ -201,7 +201,7 @@
           <div class="give-modal__section-content">
             <p class="give-modal__label give-modal__label--centered"><span class="give-modal__asterisk">*</span> Choose your donation amount:</p>
             <div class="give-modal__amount-grid">
-              <button class="give-modal__amount-option give-modal__amount-option--active" type="button" data-value="10">$10</button>
+              <button class="give-modal__amount-option" type="button" data-value="10">$10</button>
               <button class="give-modal__amount-option" type="button" data-value="20">$20</button>
               <button class="give-modal__amount-option" type="button" data-value="30">$30</button>
               <button class="give-modal__amount-option" type="button" data-value="50">$50</button>
@@ -210,7 +210,8 @@
             </div>
             <div class="give-modal__custom-row">
               <button class="give-modal__custom-btn" type="button">OTHER AMOUNT</button>
-              <input class="give-modal__input give-modal__input--custom" type="number" min="1" inputmode="numeric" placeholder="Enter amount">
+              <input class="give-modal__input give-modal__input--custom" type="text" inputmode="numeric" placeholder="Enter amount" maxlength="10">
+              <span class="give-modal__error" hidden aria-live="polite"></span>
             </div>
             <div class="give-modal__pet-row">
               <span class="give-modal__pet-label">FOR SPECIAL PET</span>
@@ -220,14 +221,7 @@
                   <span class="give-modal__select-arrow" aria-hidden="true"><img src="../../assets/icons/down-arrow.svg" alt="" width="17" height="10" /></span>
                 </button>
                 <ul class="give-modal__select-list">
-                  <li><button class="give-modal__select-item" type="button">Lucas the Panda</button></li>
-                  <li><button class="give-modal__select-item" type="button">Andy the Lemur</button></li>
-                  <li><button class="give-modal__select-item" type="button">Glen the Gorilla</button></li>
-                  <li><button class="give-modal__select-item" type="button">Mike the Alligator</button></li>
-                  <li><button class="give-modal__select-item" type="button">Sam &amp; Lora the eagles</button></li>
-                  <li><button class="give-modal__select-item give-modal__select-item--chosen" type="button">Liz the Koala</button></li>
-                  <li><button class="give-modal__select-item" type="button">Shake the Lion</button></li>
-                  <li><button class="give-modal__select-item" type="button">Senja the Tiger</button></li>
+                  <!-- Populated by JS from API -->
                 </ul>
               </div>
             </div>
@@ -243,41 +237,55 @@
                 <span class="give-modal__dot" data-step="3"></span>
               </div>
               <span class="give-modal__spacer"></span>
-              <button class="give-modal__btn give-modal__btn--next btn_turquoise" type="button" data-goto="2">NEXT<span class="give-modal__btn-arrow"><img src="../../assets/icons/union.svg" alt="" width="24" height="22" /></span></button>
+              <button class="give-modal__btn give-modal__btn--next btn_turquoise" type="button" data-goto="2" disabled>NEXT<span class="give-modal__btn-arrow"><img src="../../assets/icons/union.svg" alt="" width="24" height="22" /></span></button>
             </div>
           </div>
         </div>
         <div class="give-modal__step" data-step="2">
           <h3 class="give-modal__section-heading">Billing Information:</h3>
           <div class="give-modal__section-content">
-            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Name</p><input class="give-modal__input" type="text" placeholder="First and last name"></div>
-            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Email Address</p><input class="give-modal__input" type="email" placeholder="Enter your email"></div>
+            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Name</p><input class="give-modal__input give-modal__input-name" type="text" placeholder="First and last name"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Email Address</p><input class="give-modal__input give-modal__input-email" type="email" placeholder="Enter your email"><span class="give-modal__error" hidden aria-live="polite"></span></div>
             <p class="give-modal__note">You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
             <div class="give-modal__nav">
               <div class="give-modal__dots"><span class="give-modal__dot give-modal__dot--active" data-step="1"></span><span class="give-modal__dot give-modal__dot--active" data-step="2"></span><span class="give-modal__dot" data-step="3"></span></div>
               <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="1">Back</button>
-              <button class="give-modal__btn give-modal__btn--next" type="button" data-goto="3">NEXT</button>
+              <button class="give-modal__btn give-modal__btn--next" type="button" data-goto="3" disabled>NEXT</button>
             </div>
           </div>
         </div>
         <div class="give-modal__step" data-step="3">
           <h3 class="give-modal__section-heading">Payment Information:</h3>
           <div class="give-modal__section-content">
+            <div class="give-modal__saved-cards-wrap give-modal__saved-cards-wrap--hidden">
+              <p class="give-modal__label">Saved cards</p>
+              <select class="give-modal__saved-cards-select give-modal__select-native">
+                <option value="">Select a saved card</option>
+              </select>
+            </div>
+            <div class="give-modal__card-fields-wrap">
             <div class="give-modal__fields-row">
-              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Credit Card Number</p><input class="give-modal__input" type="text" placeholder="0000 0000 0000 0000"></div>
-              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> CVV Number</p><input class="give-modal__input" type="text" placeholder="123"></div>
+              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Credit Card Number</p><input class="give-modal__input give-modal__input-card" type="text" placeholder="0000 0000 0000 0000" maxlength="19"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> CVV Number</p><input class="give-modal__input give-modal__input-cvv" type="text" placeholder="123" maxlength="3"><span class="give-modal__error" hidden aria-live="polite"></span></div>
             </div>
             <div class="give-modal__field give-modal__field--full">
               <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Expiration Date</p>
               <div class="give-modal__date-row">
-                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native"><option value="">Month</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div>
-                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native"><option value="">Year</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select></div>
+                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native give-modal__select-month"><option value="">Month</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div>
+                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native give-modal__select-year"><option value="">Year</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select></div>
               </div>
+              <span class="give-modal__error" hidden aria-live="polite"></span>
+            </div>
+            <label class="give-modal__checkbox-wrap give-modal__save-card-wrap give-modal__save-card-wrap--hidden">
+              <input class="give-modal__checkbox give-modal__save-card" type="checkbox">
+              <span class="give-modal__checkbox-box"><img src="../../assets/icons/check.svg" alt="" class="give-modal__checkbox-icon" width="14" height="11" /></span>
+              <span class="give-modal__checkbox-text">Save card info for future donations</span>
+            </label>
             </div>
             <div class="give-modal__nav">
               <div class="give-modal__dots"><span class="give-modal__dot give-modal__dot--active" data-step="1"></span><span class="give-modal__dot give-modal__dot--active" data-step="2"></span><span class="give-modal__dot give-modal__dot--active" data-step="3"></span></div>
               <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="2">Back</button>
-              <button class="give-modal__btn give-modal__btn--submit" type="button">COMPLETE DONATION</button>
+              <button class="give-modal__btn give-modal__btn--submit" type="button" disabled>COMPLETE DONATION</button>
             </div>
           </div>
         </div>
@@ -285,6 +293,6 @@
     </div>
 
     <script type="module" src="../../src/auth-init.ts"></script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="../../src/pages/map/index.ts"></script>
   </body>
 </html>

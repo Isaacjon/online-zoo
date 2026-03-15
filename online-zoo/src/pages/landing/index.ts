@@ -2,6 +2,7 @@ import { getPets, getFeedback } from "../../api";
 import type { Pet, Feedback } from "../../api/types";
 import { getPetSlug } from "./pet-slug";
 import { initHamburgerMenu } from "../sign-in/hamburger";
+import { initDonationModal } from "../../donate-modal/donate-modal";
 
 const ASSETS_BASE = "../../assets";
 const ERROR_MESSAGE =
@@ -287,169 +288,6 @@ function initSupportAnimalsSlider(): void {
   updateActiveDot();
 }
 
-function initGiveModal(): void {
-  const modal = document.getElementById("give-modal");
-  const careModal = document.getElementById("care-modal");
-  const triggers = document.querySelectorAll(".donate-trigger");
-  const careTriggers = document.querySelectorAll(".care-modal-trigger");
-  const backdrop = modal?.querySelector(".give-modal__backdrop");
-  const careBackdrop = careModal?.querySelector(".care-modal__backdrop");
-  const careClose = careModal?.querySelector(".care-modal__close");
-  const careAmounts = careModal?.querySelectorAll(".care-modal__amount");
-  const steps = modal?.querySelectorAll(".give-modal__step");
-  const dots = modal?.querySelectorAll(".give-modal__dot");
-  const nextBtns = modal?.querySelectorAll(".give-modal__btn--next");
-  const backBtns = modal?.querySelectorAll(".give-modal__btn--back");
-  const submitBtn = modal?.querySelector(".give-modal__btn--submit");
-  const amountOptions = modal?.querySelectorAll(".give-modal__amount-option");
-  const customBtn = modal?.querySelector(".give-modal__custom-btn");
-  const customInput = modal?.querySelector(".give-modal__input--custom") as HTMLInputElement | null;
-  const selectWrap = modal?.querySelector(".give-modal__select-wrap");
-  const selectTrigger = modal?.querySelector(".give-modal__select-trigger");
-  const selectText = modal?.querySelector(".give-modal__select-text");
-  const selectItems = modal?.querySelectorAll(".give-modal__select-item");
-
-  if (!modal || !careModal) return;
-
-  function showStep(stepNum: string): void {
-    const n = Number(stepNum);
-    steps?.forEach((s) => {
-      s.classList.toggle("give-modal__step--active", Number((s as HTMLElement).dataset.step) === n);
-    });
-    dots?.forEach((d) => {
-      d.classList.toggle("give-modal__dot--active", Number((d as HTMLElement).dataset.step) <= n);
-    });
-  }
-
-  function setAmount(value: string): void {
-    amountOptions?.forEach((btn) => {
-      btn.classList.toggle("give-modal__amount-option--active", (btn as HTMLElement).dataset.value === value);
-    });
-    if (value === "custom") {
-      customBtn?.classList.add("is-active");
-    } else {
-      customBtn?.classList.remove("is-active");
-      if (customInput) customInput.value = "";
-    }
-  }
-
-  function openGiveModal(amount?: string): void {
-    if (!modal) return;
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("give-modal-open");
-    document.body.classList.remove("care-modal-open");
-    showStep("1");
-    setAmount(amount ?? "10");
-  }
-
-  function closeGiveModal(): void {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("give-modal-open");
-    showStep("1");
-    selectWrap?.classList.remove("is-open");
-  }
-
-  function openCareModal(): void {
-    careModal?.classList.add("is-open");
-    careModal?.setAttribute("aria-hidden", "false");
-    document.body.classList.add("care-modal-open");
-  }
-
-  function closeCareModal(): void {
-    careModal?.classList.remove("is-open");
-    careModal?.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("care-modal-open");
-  }
-
-  triggers.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      openGiveModal();
-    });
-  });
-
-  careTriggers?.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      openCareModal();
-    });
-  });
-
-  careClose?.addEventListener("click", closeCareModal);
-  (careBackdrop as HTMLElement)?.addEventListener("click", closeCareModal);
-  (backdrop as HTMLElement)?.addEventListener("click", closeGiveModal);
-
-  careAmounts?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const value = (btn as HTMLElement).dataset.value ?? "10";
-      closeCareModal();
-      openGiveModal(value === "other" ? "custom" : value);
-    });
-  });
-
-  nextBtns?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const goto = (btn as HTMLElement).dataset.goto;
-      if (goto) showStep(goto);
-    });
-  });
-
-  backBtns?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const goto = (btn as HTMLElement).dataset.goto;
-      if (goto) showStep(goto);
-    });
-  });
-
-  if (submitBtn) submitBtn.addEventListener("click", closeGiveModal);
-
-  amountOptions?.forEach((btn) => {
-    btn.addEventListener("click", () => setAmount((btn as HTMLElement).dataset.value ?? ""));
-  });
-
-  customBtn?.addEventListener("click", () => {
-    setAmount("custom");
-    customInput?.focus();
-  });
-
-  customInput?.addEventListener("input", () => {
-    if (customInput.value.trim()) setAmount("custom");
-  });
-
-  selectTrigger?.addEventListener("click", () => {
-    selectWrap?.classList.toggle("is-open");
-    selectTrigger?.setAttribute("aria-expanded", String(selectWrap?.classList.contains("is-open")));
-  });
-
-  selectItems?.forEach((item) => {
-    item.addEventListener("click", () => {
-      selectItems.forEach((i) => i.classList.remove("give-modal__select-item--chosen"));
-      item.classList.add("give-modal__select-item--chosen");
-      if (selectText) selectText.textContent = item.textContent?.trim() ?? "";
-      selectWrap?.classList.remove("is-open");
-      selectTrigger?.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    if (selectWrap && !selectWrap.contains(e.target as Node)) {
-      selectWrap.classList.remove("is-open");
-      selectTrigger?.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    if (careModal?.classList.contains("is-open")) {
-      closeCareModal();
-    } else if (modal?.classList.contains("is-open")) {
-      closeGiveModal();
-    }
-  });
-}
 
 async function loadLandingData(): Promise<void> {
   const petsSlider = document.querySelector(".pets-in-zoo__slider");
@@ -511,7 +349,7 @@ function init(): void {
   loadLandingData();
   loadTestimonialsData();
   initSupportAnimalsSlider();
-  initGiveModal();
+  initDonationModal();
   initHamburgerMenu();
 }
 

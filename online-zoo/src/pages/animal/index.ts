@@ -1,6 +1,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { getCameras, getPetById } from "../../api";
+import { initDonationModal } from "../../donate-modal/donate-modal";
 import type { Camera, PetDetail } from "../../api/types";
 import { getPetSlug } from "../landing/pet-slug";
 import { initHamburgerMenu } from "../sign-in/hamburger";
@@ -333,179 +334,6 @@ function initMapModal(): void {
   });
 }
 
-function initCareModal(): void {
-  const modal = document.getElementById("care-modal");
-  const triggers = document.querySelectorAll(".care-modal-trigger");
-  const backdrop = modal?.querySelector(".care-modal__backdrop");
-  const closeBtn = modal?.querySelector(".care-modal__close");
-  const amounts = modal?.querySelectorAll(".care-modal__amount");
-
-  function openModal(): void {
-    if (!modal) return;
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("care-modal-open");
-  }
-
-  function closeModal(): void {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("care-modal-open");
-  }
-
-  triggers.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      openModal();
-    });
-  });
-
-  backdrop?.addEventListener("click", closeModal);
-  closeBtn?.addEventListener("click", closeModal);
-
-  amounts?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const value = (btn as HTMLElement).dataset.value ?? "10";
-      closeModal();
-      const openGive = (window as unknown as { openGiveModal?: (v: string) => void }).openGiveModal;
-      if (typeof openGive === "function") {
-        openGive(value === "other" ? "custom" : value);
-      }
-    });
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal?.classList.contains("is-open")) closeModal();
-  });
-}
-
-function initGiveModal(): void {
-  const modal = document.getElementById("give-modal");
-  const triggers = document.querySelectorAll(".give-modal-trigger");
-  const backdrop = modal?.querySelector(".give-modal__backdrop");
-  const steps = modal?.querySelectorAll(".give-modal__step");
-  const dots = modal?.querySelectorAll(".give-modal__dot");
-  const nextBtns = modal?.querySelectorAll(".give-modal__btn--next");
-  const backBtns = modal?.querySelectorAll(".give-modal__btn--back");
-  const submitBtn = modal?.querySelector(".give-modal__btn--submit");
-  const amountOptions = modal?.querySelectorAll(".give-modal__amount-option");
-  const customBtn = modal?.querySelector(".give-modal__custom-btn");
-  const customInput = modal?.querySelector(".give-modal__input--custom") as HTMLInputElement | null;
-  const selectWrap = modal?.querySelector(".give-modal__select-wrap");
-  const selectTrigger = modal?.querySelector(".give-modal__select-trigger");
-  const selectText = modal?.querySelector(".give-modal__select-text");
-  const selectItems = modal?.querySelectorAll(".give-modal__select-item");
-
-  if (!modal) return;
-
-  function showStep(stepNum: string): void {
-    const n = Number(stepNum);
-    steps?.forEach((s) => {
-      s.classList.toggle("give-modal__step--active", Number((s as HTMLElement).dataset.step) === n);
-    });
-    dots?.forEach((d) => {
-      d.classList.toggle("give-modal__dot--active", Number((d as HTMLElement).dataset.step) <= n);
-    });
-  }
-
-  function setAmount(value: string): void {
-    amountOptions?.forEach((btn) => {
-      btn.classList.toggle("give-modal__amount-option--active", (btn as HTMLElement).dataset.value === value);
-    });
-    if (value === "custom") {
-      customBtn?.classList.add("is-active");
-    } else {
-      customBtn?.classList.remove("is-active");
-      if (customInput) customInput.value = "";
-    }
-  }
-
-  function openGiveModal(amount?: string): void {
-    if (!modal) return;
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("give-modal-open");
-    document.body.classList.remove("care-modal-open");
-    showStep("1");
-    setAmount(amount ?? "10");
-  }
-  (window as unknown as { openGiveModal?: (v?: string) => void }).openGiveModal = openGiveModal;
-
-  function closeGiveModal(): void {
-    if (!modal) return;
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("give-modal-open");
-    showStep("1");
-    selectWrap?.classList.remove("is-open");
-  }
-
-  triggers.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      openGiveModal();
-    });
-  });
-
-  backdrop?.addEventListener("click", closeGiveModal);
-
-  nextBtns?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const goto = (btn as HTMLElement).dataset.goto;
-      if (goto) showStep(goto);
-    });
-  });
-
-  backBtns?.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const goto = (btn as HTMLElement).dataset.goto;
-      if (goto) showStep(goto);
-    });
-  });
-
-  submitBtn?.addEventListener("click", closeGiveModal);
-
-  amountOptions?.forEach((btn) => {
-    btn.addEventListener("click", () => setAmount((btn as HTMLElement).dataset.value ?? ""));
-  });
-
-  customBtn?.addEventListener("click", () => {
-    setAmount("custom");
-    customInput?.focus();
-  });
-
-  customInput?.addEventListener("input", () => {
-    if (customInput?.value.trim()) setAmount("custom");
-  });
-
-  selectTrigger?.addEventListener("click", () => {
-    selectWrap?.classList.toggle("is-open");
-    selectTrigger?.setAttribute("aria-expanded", String(selectWrap?.classList.contains("is-open")));
-  });
-
-  selectItems?.forEach((item) => {
-    item.addEventListener("click", () => {
-      selectItems.forEach((i) => i.classList.remove("give-modal__select-item--chosen"));
-      item.classList.add("give-modal__select-item--chosen");
-      if (selectText) selectText.textContent = item.textContent?.trim() ?? "";
-      selectWrap?.classList.remove("is-open");
-      selectTrigger?.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    if (selectWrap && !selectWrap.contains(e.target as Node)) {
-      selectWrap.classList.remove("is-open");
-      selectTrigger?.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal?.classList.contains("is-open")) closeGiveModal();
-  });
-}
-
 function initNavPanelClick(
   _cameras: Camera[],
   onSelect: (petId: number, slug: string) => void
@@ -614,8 +442,7 @@ async function init(): Promise<void> {
   initNavPanelScroll();
   initStreamCarousel();
   initMapModal();
-  initCareModal();
-  initGiveModal();
+  initDonationModal({ donateTrigger: ".give-modal-trigger" });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
