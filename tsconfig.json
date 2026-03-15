@@ -16,6 +16,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["online-zoo/**/*.ts", "src/**/*.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["online-zoo/**/*.ts", "src/**/*.ts"]
 }
