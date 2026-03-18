@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { getCameras, getPetById } from "../../api";
 import { initDonationModal } from "../../donate-modal/donate-modal";
 import type { Camera, PetDetail } from "../../api/types";
-import { getPetSlug } from "../landing/pet-slug";
+import { getPetSlug, getPetCommonNameFromSlug } from "../landing/pet-slug";
 import { initHamburgerMenu } from "../sign-in/hamburger";
 
 const ASSETS_BASE = "../../assets";
@@ -49,8 +49,27 @@ function getAdditionalCamPaths(slug: string): string[] {
   ];
 }
 
-function createLoaderHtml(): string {
+const STREAM_TITLE_DEFAULT = "Live Cams";
+
+function formatStreamTitle(commonName: string): string {
+  return `Live ${commonName} Cams`;
+}
+
+function getInstantStreamTitle(): string {
+  const params = new URLSearchParams(window.location.search);
+  const commonNameParam = params.get("commonName");
+  const slugParam = params.get("animal");
+  if (commonNameParam) return formatStreamTitle(decodeURIComponent(commonNameParam));
+  if (slugParam) {
+    const fallback = getPetCommonNameFromSlug(slugParam);
+    if (fallback) return formatStreamTitle(fallback);
+  }
+  return STREAM_TITLE_DEFAULT;
+}
+
+function createLoaderHtml(streamTitle: string): string {
   return `
+    <h2 class="zoos-loader__title">${escapeHtml(streamTitle)}</h2>
     <div class="zoos-loader" aria-busy="true">
       <div class="zoos-loader__spinner"></div>
       <p class="zoos-loader__text">Loading...</p>
@@ -66,6 +85,19 @@ function createErrorHtml(): string {
   `;
 }
 
+function createErrorWithTitleHtml(): string {
+  return `
+    <h2 class="zoos-loader__title">${escapeHtml(getInstantStreamTitle())}</h2>
+    ${createErrorHtml()}
+  `;
+}
+
+function buildAnimalPageUrl(slug: string): string {
+  const commonName = getPetCommonNameFromSlug(slug);
+  const commonNameParam = commonName ? `&commonName=${encodeURIComponent(commonName)}` : "";
+  return `index.html?animal=${slug}${commonNameParam}`;
+}
+
 function buildNavPanel(cameras: Camera[], activePetId: number): void {
   const list = document.getElementById("nav-panel-list");
   if (!list) return;
@@ -78,7 +110,7 @@ function buildNavPanel(cameras: Camera[], activePetId: number): void {
         const isActive = cam.petId === activePetId;
         return `
       <li class="nav-panel__entry ${isActive ? "nav-panel__entry--active" : ""}">
-        <a href="index.html?animal=${slug}" class="nav-panel__link" data-pet-id="${cam.petId}">
+        <a href="${buildAnimalPageUrl(slug)}" class="nav-panel__link" data-pet-id="${cam.petId}">
           <span class="nav-panel__icon">
             <img src="${icon}" alt="" width="80" height="60" />
           </span>
@@ -99,8 +131,8 @@ function renderStreamContent(slug: string, petDetail: PetDetail | null): void {
   const camsEl = document.getElementById("stream-cams");
 
   const streamTitle = petDetail
-    ? `Live ${petDetail.commonName} Cams`
-    : "Live Cams";
+    ? formatStreamTitle(petDetail.commonName)
+    : getInstantStreamTitle();
 
   if (titleEl) titleEl.textContent = streamTitle;
   if (mainLink instanceof HTMLAnchorElement) {
@@ -210,6 +242,8 @@ function parseUrlSpecies(cameras: Camera[]): { slug: string; petId: number } {
   if (!params.get("animal")) {
     const url = new URL(window.location.href);
     url.searchParams.set("animal", slug);
+    const commonName = getPetCommonNameFromSlug(slug);
+    if (commonName) url.searchParams.set("commonName", commonName);
     window.history.replaceState({}, "", url.toString());
   }
   return { slug, petId };
@@ -347,8 +381,7 @@ function initNavPanelClick(
     e.preventDefault();
     const petId = Number((link as HTMLElement).dataset.petId);
     const slug = getPetSlug(petId);
-    const url = new URL(window.location.href);
-    url.searchParams.set("animal", slug);
+    const url = new URL(buildAnimalPageUrl(slug), window.location.href);
     window.history.pushState({}, "", url.toString());
     onSelect(petId, slug);
   });
@@ -410,9 +443,13 @@ async function init(): Promise<void> {
 
   if (!streamSection || !supportSection || !factsSection) return;
 
+  const instantTitle = getInstantStreamTitle();
+  const streamTitleEl = document.getElementById("stream-title");
+  if (streamTitleEl) streamTitleEl.textContent = instantTitle;
+
   const loaderContainer = document.createElement("div");
   loaderContainer.className = "zoos-loader-container";
-  loaderContainer.innerHTML = createLoaderHtml();
+  loaderContainer.innerHTML = createLoaderHtml(instantTitle);
   streamSection.insertAdjacentElement("afterend", loaderContainer);
 
   streamSection.setAttribute("aria-hidden", "true");
@@ -424,7 +461,7 @@ async function init(): Promise<void> {
   try {
     const { data: cameras } = await getCameras();
     if (!cameras.length) {
-      loaderContainer.innerHTML = createErrorHtml();
+      loaderContainer.innerHTML = createErrorWithTitleHtml();
       stickyAside?.classList.add("sticky-aside--hidden");
       return;
     }
@@ -434,7 +471,7 @@ async function init(): Promise<void> {
     supportSection.removeAttribute("aria-hidden");
     factsSection.removeAttribute("aria-hidden");
   } catch {
-    loaderContainer.innerHTML = createErrorHtml();
+    loaderContainer.innerHTML = createErrorWithTitleHtml();
     stickyAside?.classList.add("sticky-aside--hidden");
   }
 

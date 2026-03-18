@@ -48,7 +48,8 @@ function renderFeedbackTile(feedback: Feedback): string {
 function renderPetCard(pet: Pet): string {
   const slug = getPetSlug(pet.id);
   const imageSrc = `${ASSETS_BASE}/images/pets/${slug}.jpg`;
-  const url = `../animal/index.html?animal=${slug}`;
+  const commonName = encodeURIComponent(pet.commonName);
+  const url = `../animal/index.html?animal=${slug}&commonName=${commonName}`;
   return `
     <article class="animal-card" data-animal="${slug}">
       <a href="${url}" class="animal-card__overlay" aria-label="View ${escapeHtml(pet.commonName)}"></a>

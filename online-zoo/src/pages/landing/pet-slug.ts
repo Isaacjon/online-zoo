@@ -32,3 +32,39 @@ export const PET_ID_TO_SLUG: Record<number, string> = {
 export function getPetSlug(petId: number): string {
   return PET_ID_TO_SLUG[petId] ?? "panda";
 }
+
+/** Fallback common names when URL has no commonName (e.g. map, support cards) */
+export const SLUG_TO_COMMON_NAME: Record<string, string> = {
+  panda: "Giant Panda",
+  lemur: "Lemur",
+  gorilla: "Gorilla",
+  alligator: "American Alligator",
+  eagle: "Bald Eagle",
+  koala: "Koala",
+  lion: "Lion",
+  tiger: "Tiger",
+  "red-panda": "Red Panda",
+  "mountain-gorilla": "Mountain Gorilla",
+  elephant: "Elephant",
+  "sea-otter": "Sea Otter",
+  "bengal-tiger": "Bengal Tiger",
+  "gray-wolf": "Gray Wolf",
+  "fennec-fox": "Fennec Fox",
+  "grizzly-bear": "Grizzly Bear",
+  dolphin: "Dolphin",
+  "snow-leopard": "Snow Leopard",
+  "polar-bear": "Polar Bear",
+  jaguar: "Jaguar",
+  "ring-tailed-lemur": "Ring-Tailed Lemur",
+  rhinoceros: "Rhinoceros",
+  "arctic-fox": "Arctic Fox",
+  crocodile: "Crocodile",
+  macaw: "Macaw",
+  "komodo-dragon": "Komodo Dragon",
+  sloth: "Sloth",
+  cheetah: "Cheetah",
+};
+
+export function getPetCommonNameFromSlug(slug: string): string | undefined {
+  return SLUG_TO_COMMON_NAME[slug];
+}
