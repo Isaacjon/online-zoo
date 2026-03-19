@@ -10,15 +10,26 @@ const ASSETS_BASE = "../../assets";
 const STREAM_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 const ERROR_MESSAGE = "Something went wrong. Please, refresh the page";
 
-const SLUG_TO_MAP_ICON: Record<string, string> = {
-  panda: "panda",
-  lemur: "lemur",
-  gorilla: "gorilla",
-  eagle: "eagle",
-  alligator: "alligator",
-  tiger: "tiger",
-  koala: "coala",
-  lion: "lion",
+enum MapIcon {
+  Panda = "panda",
+  Lemur = "lemur",
+  Gorilla = "gorilla",
+  Eagle = "eagle",
+  Alligator = "alligator",
+  Tiger = "tiger",
+  Coala = "coala",
+  Lion = "lion",
+}
+
+const SLUG_TO_MAP_ICON: Record<string, MapIcon> = {
+  panda: MapIcon.Panda,
+  lemur: MapIcon.Lemur,
+  gorilla: MapIcon.Gorilla,
+  eagle: MapIcon.Eagle,
+  alligator: MapIcon.Alligator,
+  tiger: MapIcon.Tiger,
+  koala: MapIcon.Coala,
+  lion: MapIcon.Lion,
 };
 
 function escapeHtml(text: string): string {
@@ -28,7 +39,7 @@ function escapeHtml(text: string): string {
 }
 
 function getMapIcon(slug: string): string {
-  const icon = SLUG_TO_MAP_ICON[slug] ?? "panda";
+  const icon = SLUG_TO_MAP_ICON[slug] ?? MapIcon.Panda;
   return `${ASSETS_BASE}/icons/map/${icon}.svg`;
 }
 
