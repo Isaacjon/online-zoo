@@ -33,7 +33,9 @@ export function saveCard(card: Omit<SavedCard, "id">): void {
       : [...cards, savedCard];
   try {
     localStorage.setItem(SAVED_CARDS_KEY, JSON.stringify(updated));
-  } catch {}
+  } catch {
+    return;
+  }
 }
 
 export function maskCardNumber(num: string): string {

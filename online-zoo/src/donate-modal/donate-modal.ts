@@ -436,7 +436,7 @@ export function initDonationModal(options?: {
 
   customInput?.addEventListener("beforeinput", (e) => {
     const data = e.data ?? "";
-    if (/[eE+\-]/.test(data)) {
+    if (/[-eE+]/.test(data)) {
       e.preventDefault();
       return;
     }
