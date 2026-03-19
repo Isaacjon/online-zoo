@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../assets/icons/favicon.svg"
+      sizes="16x16"
+    />
+    <title>Online Zoo animals</title>
+    <link rel="stylesheet" href="../../assets/styles/globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="visually-hidden">Online Zoo animals</h1>
+    <header class="header">
+      <div class="container header__container">
+        <a href="../landing/index.html" class="header__logo" aria-label="Online Zoo - Home">
+          <img src="../../assets/icons/online-zoo-logo.svg" alt="Online Zoo" class="header__logo-img" width="96" height="50" />
+        </a>
+        <nav class="header__nav" id="header-nav">
+          <ul class="header__nav-list">
+            <li><a href="../landing/index.html" class="header__nav-link">ABOUT</a></li>
+            <li><a href="../map/index.html" class="header__nav-link">MAP</a></li>
+            <li><a href="index.html" class="header__nav-link header__nav-link--active">ZOOS</a></li>
+            <li><a href="../contact/index.html" class="header__nav-link">CONTACT US</a></li>
+            <li><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1" class="header__nav-link" target="_blank" rel="noopener noreferrer">DESIGN</a></li>
+          </ul>
+        </nav>
+        <div class="header__social">
+          <a href="#" class="header__social-link" aria-label="YouTube" title="YouTube">
+            <img src="../../assets/icons/youtube.svg" alt="" class="header__social-icon" width="40" height="40" />
+          </a>
+          <a href="#" class="header__social-link" aria-label="Instagram" title="Instagram">
+            <img src="../../assets/icons/instagram.svg" alt="" class="header__social-icon" width="40" height="40" />
+          </a>
+          <a href="#" class="header__social-link" aria-label="Facebook" title="Facebook">
+            <img src="../../assets/icons/facebook.svg" alt="" class="header__social-icon" width="40" height="40" />
+          </a>
+        </div>
+        <button type="button" class="header__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="header-nav">
+          <img src="../../assets/icons/hamburger.svg" alt="" class="header__hamburger-icon header__hamburger-icon--open" width="30" height="30" />
+          <img src="../../assets/icons/close-hamburger.svg" alt="" class="header__hamburger-icon header__hamburger-icon--close" width="30" height="29" />
+        </button>
+      </div>
+      <div class="side-menu" id="side-menu" aria-hidden="true">
+        <button type="button" class="side-menu__close" aria-label="Close menu">
+          <img src="../../assets/icons/close-hamburger.svg" alt="" width="30" height="29" />
+        </button>
+        <nav class="side-menu__nav">
+          <ul class="side-menu__nav-list">
+            <li><a href="../landing/index.html" class="side-menu__nav-link">ABOUT</a></li>
+            <li><a href="../map/index.html" class="side-menu__nav-link">MAP</a></li>
+            <li><a href="index.html" class="side-menu__nav-link side-menu__nav-link--active">ZOOS</a></li>
+            <li><a href="../contact/index.html" class="side-menu__nav-link">CONTACT US</a></li>
+            <li><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1" class="side-menu__nav-link" target="_blank" rel="noopener noreferrer">DESIGN</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="sticky-aside">
+      <aside class="nav-panel nav-panel--collapsed" id="nav-panel" aria-label="Animal navigation">
+        <div class="nav-panel__header">
+          <span class="nav-panel__badge">
+            Live
+            <img src="../../assets/icons/zoos/live-cam.svg" alt="Live Camera" class="stream-cam-icon" width="20" height="20" />
+          </span>
+          <button type="button" class="nav-panel__toggle" aria-label="Toggle navigation">
+            <img src="../../assets/icons/zoos/double-arrow-right.svg" alt="Double Arrow" />
+          </button>
+        </div>
+        <ul class="nav-panel__list" id="nav-panel-list"></ul>
+        <div class="nav-panel__footer">
+          <button type="button" class="nav-panel__scroll" aria-label="Scroll down">
+            <img src="../../assets/icons/zoos/arrow-bottom.svg" alt="Arrow Down" />
+          </button>
+        </div>
+      </aside>
+    </div>
+    <div class="facts-overlay" id="facts-overlay" aria-hidden="true">
+      <div class="zoos-loader" aria-busy="true">
+        <div class="zoos-loader__spinner"></div>
+        <p class="zoos-loader__text">Loading...</p>
+      </div>
+    </div>
+
+    <main class="main">
+
+      <section class="stream">
+        <div class="stream__container">
+          <div class="stream__header">
+            <h2 class="stream__title" id="stream-title">Live Cams</h2>
+            <button type="button" class="btn_orange stream__btn give-modal-trigger">
+              <span>Donate Now</span>
+              <img src="../../assets/icons/union.svg" alt="" width="25" height="22" />
+            </button>
+          </div>
+          <div class="stream__content">
+            <div class="stream__image">
+              <a href="https://www.youtube.com/" class="stream__image-link" id="stream-main-link" target="_blank" rel="noopener noreferrer"></a>
+              <img src="../../assets/images/zoos/panda/main-cam.jpg" alt="Panda" id="stream-main-img" />
+              <a href="https://www.youtube.com/" class="stream__play-btn" id="stream-play-btn" target="_blank" rel="noopener noreferrer" aria-label="Play video"></a>
+            </div>
+            <button type="button" class="btn_orange stream__btn-2 give-modal-trigger">
+              <span>Donate Now</span>
+              <img src="../../assets/icons/union.svg" alt="" width="25" height="22" />
+            </button>
+            <h3 class="stream__subtitle">More live views</h3>
+            <div class="stream__carousel">
+              <button type="button" class="stream__nav stream__nav--prev" aria-label="Previous cameras">
+                <img src="../../assets/icons/zoos/arrow-left.svg" alt="Previous" />
+              </button>
+              <div class="stream__cams" id="stream-cams"></div>
+              <button type="button" class="stream__nav stream__nav--next" aria-label="Next cameras">
+                <img src="../../assets/icons/zoos/arrow-right.svg" alt="Next" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="stream__btn-wrap">
+          <button type="button" class="btn_orange stream__btn-3 give-modal-trigger">
+            <span>Donate Now</span>
+            <img src="../../assets/icons/union.svg" alt="" width="25" height="22" />
+          </button>
+        </div>
+      </section>
+
+      <section class="support">
+        <div class="support__container">
+          <div class="support__content">
+            <h4 class="support__title" id="support-title">Make the Bamboo Donation!</h4>
+            <p class="support__text support__text-wrap" id="support-text">
+              Bamboo donations begin with a site visit. Our staff checks the
+              growing location and identifies whether the species is suitable
+              for our pandas. We appreciate your support.
+            </p>
+          </div>
+          <div class="support__action">
+            <h5 class="support__label">Quick Donate</h5>
+            <button type="button" class="support__btn give-modal-trigger">
+              <span class="support__btn-text">$ Donation Amount</span>
+              <span class="support__btn-icon">
+                <img src="../../assets/icons/union.svg" alt="" width="25" height="22" />
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="facts">
+        <div class="facts__container">
+          <div class="facts__header">
+            <h4 class="facts__title">Did you know?</h4>
+            <h5 class="facts__subtitle" id="facts-subtitle">
+              Pandas often eat while sitting with their legs stretched out.
+              Despite looking calm, they climb trees and swim well.
+            </h5>
+          </div>
+          <div class="facts__content">
+            <ul class="facts__list facts__list--panda" id="facts-list"></ul>
+            <div class="facts__image">
+              <img src="../../assets/images/zoos/panda/panda.jpg" alt="Panda" id="facts-image" />
+            </div>
+          </div>
+          <p class="facts__descr" id="facts-descr">
+            Giant pandas eat mostly bamboo, which is low in nutrients. They have
+            evolved many adaptations for this diet and are mostly solitary,
+            using a strong sense of smell to find mates in spring.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__top container">
+          <div class="footer__logos">
+            <a href="../landing/index.html" class="footer__logo" aria-label="Online Zoo">
+              <img src="../../assets/icons/online-zoo-logo.svg" alt="Online Zoo" width="96" height="50" />
+            </a>
+            <a href="https://www.yemdigital.com/" class="footer__yem" target="_blank" rel="noopener noreferrer" aria-label="Yem Digital">
+              <img src="../../assets/icons/yem-logo.svg" alt="Yem Digital" width="50" height="50" />
+            </a>
+            <a href="https://rs.school/js/" class="footer__rs" target="_blank" rel="noopener noreferrer" aria-label="RS School">
+              <img src="../../assets/icons/rs-school-js-logo.svg" alt="RS School" width="138" height="52" />
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li><a href="../landing/index.html" class="footer__nav-link">ABOUT</a></li>
+              <li><a href="../map/index.html" class="footer__nav-link">MAP</a></li>
+              <li><a href="index.html" class="footer__nav-link">ZOOS</a></li>
+              <li><a href="../contact/index.html" class="footer__nav-link">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <button type="button" class="btn_turquoise-outlined care-modal-trigger">
+            <span>Donate for volunteers</span>
+            <img src="../../assets/icons/union.svg" alt="" width="24" height="22" class="btn__icon" />
+          </button>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img src="../../assets/icons/youtube.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img src="../../assets/icons/instagram.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img src="../../assets/icons/facebook.svg" alt="" width="40" height="40" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__divider"></div>
+        <div class="footer__bottom container">
+          <div class="footer__copyright">
+            <span>© 2025</span>
+            <span>© Yem Digital</span>
+            <span>© RSSchool</span>
+          </div>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img src="../../assets/icons/youtube.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img src="../../assets/icons/instagram.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img src="../../assets/icons/facebook.svg" alt="" width="40" height="40" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="care-modal" id="care-modal" aria-hidden="true">
+      <div class="care-modal__backdrop"></div>
+      <div class="care-modal__panel" role="dialog" aria-modal="true" aria-labelledby="care-modal-title">
+        <button type="button" class="care-modal__close" aria-label="Close donation popup">
+          <img src="../../assets/icons/close-hamburger.svg" alt="" width="30" height="30" />
+        </button>
+        <div class="care-modal__image">
+          <img src="../../assets/images/care-modal.jpg" alt="Lion paw and human hand together" />
+        </div>
+        <div class="care-modal__body">
+          <h2 class="care-modal__title" id="care-modal-title">JOIN US IN CARING FOR WILDLIFE</h2>
+          <p class="care-modal__text">
+            Every contribution helps protect endangered species and provides
+            essential support for animals that depend on conservation efforts
+            worldwide.
+          </p>
+          <div class="care-modal__amounts">
+            <button type="button" class="care-modal__amount" data-value="20">$20</button>
+            <button type="button" class="care-modal__amount" data-value="30">$30</button>
+            <button type="button" class="care-modal__amount" data-value="50">$50</button>
+            <button type="button" class="care-modal__amount" data-value="80">$80</button>
+            <button type="button" class="care-modal__amount" data-value="100">$100</button>
+            <button type="button" class="care-modal__amount" data-value="other">OTHER AMOUNT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-modal" id="map-modal" aria-hidden="true">
+      <div class="map-modal__backdrop"></div>
+      <div class="map-modal__panel" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+        <button type="button" class="map-modal__close" aria-label="Close map">
+          <img src="../../assets/icons/close-hamburger.svg" alt="" width="30" height="30" />
+        </button>
+        <h2 class="map-modal__title" id="map-modal-title">View on Map</h2>
+        <div class="map-modal__map" id="map-modal-container"></div>
+      </div>
+    </div>
+
+    <div class="give-modal" id="give-modal" aria-hidden="true">
+      <div class="give-modal__backdrop"></div>
+      <div class="give-modal__panel" role="dialog" aria-modal="true" aria-labelledby="give-modal-title">
+        <header class="give-modal__header">
+          <h2 class="give-modal__heading" id="give-modal-title">MAKE YOUR DONATION</h2>
+        </header>
+        <div class="give-modal__step give-modal__step--active" data-step="1">
+          <h3 class="give-modal__section-heading">Donation Information:</h3>
+          <div class="give-modal__section-content">
+            <p class="give-modal__label give-modal__label--centered"><span class="give-modal__asterisk">*</span> Choose your donation amount:</p>
+            <div class="give-modal__amount-grid">
+              <button class="give-modal__amount-option" type="button" data-value="10">$10</button>
+              <button class="give-modal__amount-option" type="button" data-value="20">$20</button>
+              <button class="give-modal__amount-option" type="button" data-value="30">$30</button>
+              <button class="give-modal__amount-option" type="button" data-value="50">$50</button>
+              <button class="give-modal__amount-option" type="button" data-value="80">$80</button>
+              <button class="give-modal__amount-option" type="button" data-value="100">$100</button>
+            </div>
+            <div class="give-modal__custom-row">
+              <button class="give-modal__custom-btn" type="button">OTHER AMOUNT</button>
+              <input class="give-modal__input give-modal__input--custom" type="text" inputmode="numeric" placeholder="Enter amount" maxlength="10">
+              <span class="give-modal__error" hidden aria-live="polite"></span>
+            </div>
+            <div class="give-modal__pet-row">
+              <span class="give-modal__pet-label">FOR SPECIAL PET</span>
+              <div class="give-modal__select-wrap">
+                <button class="give-modal__select-trigger" type="button" aria-expanded="false">
+                  <span class="give-modal__select-text">Choose your favourite</span>
+                  <span class="give-modal__select-arrow" aria-hidden="true"><img src="../../assets/icons/down-arrow.svg" alt="" width="17" height="10" /></span>
+                </button>
+                <ul class="give-modal__select-list">
+                  <!-- Populated by JS from API -->
+                </ul>
+              </div>
+            </div>
+            <label class="give-modal__checkbox-wrap">
+              <input class="give-modal__checkbox" type="checkbox">
+              <span class="give-modal__checkbox-box"><img src="../../assets/icons/check.svg" alt="" class="give-modal__checkbox-icon" width="14" height="11" /></span>
+              <span class="give-modal__checkbox-text">Make this a monthly recurring gift</span>
+            </label>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots">
+                <span class="give-modal__dot give-modal__dot--active" data-step="1"></span>
+                <span class="give-modal__dot" data-step="2"></span>
+                <span class="give-modal__dot" data-step="3"></span>
+              </div>
+              <span class="give-modal__spacer"></span>
+              <button class="give-modal__btn give-modal__btn--next btn_turquoise" type="button" data-goto="2" disabled>NEXT<span class="give-modal__btn-arrow"><img src="../../assets/icons/union.svg" alt="" width="24" height="22" /></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="give-modal__step" data-step="2">
+          <h3 class="give-modal__section-heading">Billing Information:</h3>
+          <div class="give-modal__section-content">
+            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Name</p><input class="give-modal__input give-modal__input-name" type="text" placeholder="First and last name"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+            <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Your Email Address</p><input class="give-modal__input give-modal__input-email" type="email" placeholder="Enter your email"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+            <p class="give-modal__note">You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots"><span class="give-modal__dot give-modal__dot--active" data-step="1"></span><span class="give-modal__dot give-modal__dot--active" data-step="2"></span><span class="give-modal__dot" data-step="3"></span></div>
+              <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="1">Back</button>
+              <button class="give-modal__btn give-modal__btn--next" type="button" data-goto="3" disabled>NEXT</button>
+            </div>
+          </div>
+        </div>
+        <div class="give-modal__step" data-step="3">
+          <h3 class="give-modal__section-heading">Payment Information:</h3>
+          <div class="give-modal__section-content">
+            <div class="give-modal__saved-cards-wrap give-modal__saved-cards-wrap--hidden">
+              <p class="give-modal__label">Saved cards</p>
+              <select class="give-modal__saved-cards-select give-modal__select-native">
+                <option value="">Select a saved card</option>
+              </select>
+            </div>
+            <div class="give-modal__card-fields-wrap">
+            <div class="give-modal__fields-row">
+              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> Credit Card Number</p><input class="give-modal__input give-modal__input-card" type="text" placeholder="0000 0000 0000 0000" maxlength="19"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+              <div class="give-modal__field"><p class="give-modal__label"><span class="give-modal__asterisk">*</span> CVV Number</p><input class="give-modal__input give-modal__input-cvv" type="text" placeholder="123" maxlength="3"><span class="give-modal__error" hidden aria-live="polite"></span></div>
+            </div>
+            <div class="give-modal__field give-modal__field--full">
+              <p class="give-modal__label"><span class="give-modal__asterisk">*</span> Expiration Date</p>
+              <div class="give-modal__date-row">
+                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native give-modal__select-month"><option value="">Month</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div>
+                <div class="give-modal__select-wrap give-modal__select-wrap--native"><select class="give-modal__select-native give-modal__select-year"><option value="">Year</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option></select></div>
+              </div>
+              <span class="give-modal__error" hidden aria-live="polite"></span>
+            </div>
+            <label class="give-modal__checkbox-wrap give-modal__save-card-wrap give-modal__save-card-wrap--hidden">
+              <input class="give-modal__checkbox give-modal__save-card" type="checkbox">
+              <span class="give-modal__checkbox-box"><img src="../../assets/icons/check.svg" alt="" class="give-modal__checkbox-icon" width="14" height="11" /></span>
+              <span class="give-modal__checkbox-text">Save card info for future donations</span>
+            </label>
+            </div>
+            <div class="give-modal__nav">
+              <div class="give-modal__dots"><span class="give-modal__dot give-modal__dot--active" data-step="1"></span><span class="give-modal__dot give-modal__dot--active" data-step="2"></span><span class="give-modal__dot give-modal__dot--active" data-step="3"></span></div>
+              <button class="give-modal__btn give-modal__btn--back" type="button" data-goto="2">Back</button>
+              <button class="give-modal__btn give-modal__btn--submit" type="button" disabled>COMPLETE DONATION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../../src/auth-init.ts"></script>
+    <script type="module" src="../../src/pages/animal/index.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+:root {
+  --black: #000;
+  --navy: #20113d;
+  --white: #fff;
+  --orange: #f58021;
+  --orange-hover: #d26004;
+  --turquoise: #00a092;
+  --turquoise-hover: #05786e;
+  --zoo-font: "Montserrat", sans-serif;
+  --container-width: 1400px;
+  --container-padding: 20px;
+}

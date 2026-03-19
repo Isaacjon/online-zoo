@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../../assets/icons/favicon.svg"
+      sizes="16x16"
+    />
+    <title>Online Zoo - Sign In</title>
+    <link rel="stylesheet" href="../../assets/styles/globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <a
+          href="../landing/index.html"
+          class="header__logo"
+          aria-label="Online Zoo - Home"
+        >
+          <img
+            src="../../assets/icons/online-zoo-logo.svg"
+            alt="Online Zoo"
+            class="header__logo-img"
+            width="96"
+            height="50"
+          />
+          <h1 class="visually-hidden">Online Zoo</h1>
+        </a>
+        <nav class="header__nav" id="header-nav">
+          <ul class="header__nav-list">
+            <li>
+              <a href="../landing/index.html" class="header__nav-link">ABOUT</a>
+            </li>
+            <li>
+              <a href="../map/index.html" class="header__nav-link">MAP</a>
+            </li>
+            <li>
+              <a href="../animal/index.html" class="header__nav-link">ZOOS</a>
+            </li>
+            <li>
+              <a href="../contact/index.html" class="header__nav-link"
+                >CONTACT US</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"
+                class="header__nav-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DESIGN</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="header__social">
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="YouTube"
+            title="YouTube"
+          >
+            <img
+              src="../../assets/icons/youtube.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <img
+              src="../../assets/icons/instagram.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            href="#"
+            class="header__social-link"
+            aria-label="Facebook"
+            title="Facebook"
+          >
+            <img
+              src="../../assets/icons/facebook.svg"
+              alt=""
+              class="header__social-icon"
+              width="40"
+              height="40"
+            />
+          </a>
+        </div>
+        <button
+          type="button"
+          class="header__hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="header-nav"
+        >
+          <img
+            src="../../assets/icons/hamburger.svg"
+            alt=""
+            class="header__hamburger-icon header__hamburger-icon--open"
+            width="30"
+            height="30"
+          />
+          <img
+            src="../../assets/icons/close-hamburger.svg"
+            alt=""
+            class="header__hamburger-icon header__hamburger-icon--close"
+            width="30"
+            height="29"
+          />
+        </button>
+      </div>
+      <div class="side-menu" id="side-menu" aria-hidden="true">
+        <button type="button" class="side-menu__close" aria-label="Close menu">
+          <img
+            src="../../assets/icons/close-hamburger.svg"
+            alt=""
+            width="30"
+            height="29"
+          />
+        </button>
+        <nav class="side-menu__nav">
+          <ul class="side-menu__nav-list">
+            <li>
+              <a href="../landing/index.html" class="side-menu__nav-link"
+                >ABOUT</a
+              >
+            </li>
+            <li>
+              <a href="../map/index.html" class="side-menu__nav-link">MAP</a>
+            </li>
+            <li>
+              <a href="../animal/index.html" class="side-menu__nav-link"
+                >ZOOS</a
+              >
+            </li>
+            <li>
+              <a href="../contact/index.html" class="side-menu__nav-link"
+                >CONTACT US</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"
+                class="side-menu__nav-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DESIGN</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="touch" aria-labelledby="sign-in-heading">
+        <div class="touch__inner container">
+          <div class="touch__grid">
+            <div class="touch__intro">
+              <h2 id="sign-in-heading" class="touch__heading">Sign In</h2>
+              <p class="touch__description">
+                Sign in to your account to access your profile, save your
+                favourite animals, and make donations. Don't have an account yet?
+                <a href="../register/index.html" class="touch__link">Register here</a>.
+              </p>
+            </div>
+
+            <form class="touch__form feedback-form" id="sign-in-form" novalidate autocomplete="off">
+              <div class="feedback-form__row" id="login-row">
+                <label for="sign-in-login" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Login
+                </label>
+                <div class="feedback-form__input-wrap">
+                  <input
+                    id="sign-in-login"
+                    type="text"
+                    class="feedback-form__input"
+                    name="login"
+                    placeholder="Enter your login"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="login-error" role="alert"></span>
+              </div>
+              <div class="feedback-form__row" id="password-row">
+                <label for="sign-in-password" class="feedback-form__label">
+                  <span class="feedback-form__asterisk" aria-hidden="true">*</span>
+                  Password
+                </label>
+                <div class="feedback-form__input-wrap feedback-form__input-wrap--password">
+                  <input
+                    id="sign-in-password"
+                    type="password"
+                    class="feedback-form__input"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="off"
+                    readonly
+                  />
+                  <button
+                    type="button"
+                    class="feedback-form__password-toggle"
+                    aria-label="Show password"
+                    title="Show password"
+                  >
+                    <img
+                      src="../../assets/icons/eye.svg"
+                      alt=""
+                      class="feedback-form__password-toggle-icon"
+                      width="24"
+                      height="24"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <img
+                    src="../../assets/icons/error.svg"
+                    alt=""
+                    class="feedback-form__error-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span class="feedback-form__error" id="password-error" role="alert"></span>
+              </div>
+              <span class="feedback-form__form-error" id="form-error" role="alert"></span>
+              <button type="submit" class="touch__submit btn_turquoise" id="sign-in-btn" disabled>
+                <span class="sign-in-form__btn-text">SIGN IN</span>
+                <img
+                  src="../../assets/icons/union.svg"
+                  alt=""
+                  width="24"
+                  height="22"
+                  class="btn__icon sign-in-form__btn-icon"
+                />
+                <span class="sign-in-form__loader" aria-hidden="true"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__top container">
+          <div class="footer__logos">
+            <a
+              href="../landing/index.html"
+              class="footer__logo"
+              aria-label="Online Zoo - Home"
+            >
+              <img
+                src="../../assets/icons/online-zoo-logo.svg"
+                alt="Online Zoo"
+                width="96"
+                height="50"
+              />
+            </a>
+            <a
+              href="https://www.yemdigital.com/"
+              class="footer__yem"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Yem Digital"
+            >
+              <img
+                src="../../assets/icons/yem-logo.svg"
+                alt="Yem Digital"
+                width="50"
+                height="50"
+              />
+            </a>
+            <a
+              href="https://rs.school/js/"
+              class="footer__rs"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RS School"
+            >
+              <img
+                src="../../assets/icons/rs-school-js-logo.svg"
+                alt="RS School"
+                width="138"
+                height="52"
+              />
+            </a>
+          </div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li>
+                <a href="../landing/index.html" class="footer__nav-link"
+                  >ABOUT</a
+                >
+              </li>
+              <li>
+                <a href="../map/index.html" class="footer__nav-link">MAP</a>
+              </li>
+              <li>
+                <a href="../animal/index.html" class="footer__nav-link"
+                  >ZOOS</a
+                >
+              </li>
+              <li>
+                <a href="../contact/index.html" class="footer__nav-link"
+                  >CONTACT US</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <button type="button" class="btn_turquoise-outlined care-modal-trigger">
+            <span>Donate for volunteers</span>
+            <img
+              src="../../assets/icons/union.svg"
+              alt=""
+              width="24"
+              height="22"
+              class="btn__icon"
+            />
+          </button>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img src="../../assets/icons/youtube.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img src="../../assets/icons/instagram.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img src="../../assets/icons/facebook.svg" alt="" width="40" height="40" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__divider"></div>
+        <div class="footer__bottom container">
+          <div class="footer__copyright">
+            <span>© 2025</span>
+            <span>© Yem Digital</span>
+            <span>© RSSchool</span>
+          </div>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <img src="../../assets/icons/youtube.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img src="../../assets/icons/instagram.svg" alt="" width="40" height="40" />
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img src="../../assets/icons/facebook.svg" alt="" width="40" height="40" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../../src/auth-init.ts"></script>
+    <script type="module" src="../../src/pages/sign-in/index.ts"></script>
+  </body>
+</html>
